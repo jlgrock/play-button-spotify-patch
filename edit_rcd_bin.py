@@ -84,7 +84,7 @@ rcd_filepath = sys.argv[1]
 
 # Fix binary
 string_to_find = 'tell application id "com.apple.iTunes" to launch'
-string_to_use = 'tell application id "com.spotify.client" to launch'
+string_to_use =  'tell application "Spotify" to launch (*filler_*)'
 findAndReplace(string_to_find,string_to_use,rcd_filepath)
 
 sys.exit(0)   # Return successful status.
