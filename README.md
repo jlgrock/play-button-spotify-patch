@@ -19,6 +19,6 @@ General Information
 -------------------
 This is a fork from a project from [Farhan Ahmad](https://github.com/thebitguru/play-button-itunes-patch), which disabled the play button until an application had started up.
 
-To run the patch (which does the backup automatically), clone this repository and double click on the file **Patch.command**.
+To run the patch (which does the backup automatically), clone this repository, navigate to the top level, and execute the the file [Patch.command]((https://github.com/jlgrock/play-button-spotify-patch/blob/master/Patch.command), as such: `sudo ./Patch.command`.  It will prompt you for the rest.
 
 Want to customize this to work on some other application?  Just modify the `string_to_use` variable in [edit_rcd_bin.py](https://github.com/jlgrock/play-button-spotify-patch/blob/master/edit_rcd_bin.py).  Just make sure that it's exactly 48 characters in the string, otherwise you'll mess up the register math!  But don't worry, if you do mess it up, just run the command again to undo it :)
