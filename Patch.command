@@ -4,35 +4,9 @@
 # Description: This is a simple command line driver for patching the remote control
 #  daemon.  The actual patching is done by the python script (patch_bytes.py).
 #
-# Author: Farhan Ahmad <farhan@thebitguru.com>
-# Website: http://www.thebitguru.com/projects/iTunesPatch
-#
-# Revision history:
-#  2010-11-18, fa:
-#   * Created
-#  2010-11-28, fa:
-#   * Updated to use patch_bytes.py script instead of the previously
-#     used bsdiff/bspatch method.
-#  2011-08-18, fa:
-#   * Added fix submitted by Michael Winestock to account for spaces
-#     in the directory name.
-#  2011-09-03, fa:
-#   * Added Michael's contact info 
-#     Michael Winestock  http://www.linkedin.com/pub/michael-winestock/18/579/972
-#  2013-05-11, fa:
-#   * Added step to self-sign the modified binary. This should
-#     prevent rcd from crashing on Mountain Lion.  Thanks to user48986 at
-#     http://apple.stackexchange.com/questions/64408/can-you-disable-a-code-signature-check
-#   * Changed version to 0.8.2.
-#  2014-01-19, fa: Farhan Ahmad
-#     * Added the '-KILL' to killall command because rcd doesn't seem to respect SIGTERM
-#       anymore.  Thanks for @quicksnap (https://github.com/quicksnap) for helping
-#       troubleshoot.
-#     * Version changed to 0.8.3
-#
-# Technical notes:
-#   Create a backup of the original file (cp rcd rcd_original_os).
-#   Comment out (--) the iTunes launch lines in rcd.
+# Author: Justin Grant
+# Original Author: Farhan Ahmad <farhan@thebitguru.com>
+
 
 VERSION=0.8.3   # Version of the script.
 
@@ -114,7 +88,7 @@ echo -n "Everything is ready. Would you like to create a backup and apply the pa
 read go_ahead
 go_ahead=`echo $go_ahead | tr '[:lower:]' '[:upper:]' | cut -b 1`
 if [[ "$go_ahead" != "Y" ]]; then
-	echo "You must answer yes, aborting."
+	echo "You must answer yes to continue, aborting."
 	echo
 	exit
 fi
@@ -137,16 +111,12 @@ if [[ $? -eq 0 ]]; then
 	echo "Finished patching.  To verify: "
 	echo " 1. If iTunes is already running then quit it first."
 	echo " 2. Press the play button on your keyboard."
-	echo " 3. If iTunes did not start then the patch was applied successfully."
+	echo " 3. If Spotify starts then patch was applied successfully, if iTunes starts then it wasn't."
 	echo " 4. Enjoy."
 	echo
 	echo "Run this script again if you would like to restore the original functionality."
 else
-	echo " !!! Sorry, an unexpected error occurred while patching. Please email me all"
-	echo "     of the above text and attach $rcd_path/rcd "
-	echo "     for troubleshooting at farhan@thebitguru.com."
+	echo " !!! Sorry, an unexpected error occurred while patching. Please enter an issue"
+	echo "     at https://github.com/jlgrock/play-button-spotify-patch.  Please include"
+	echo "     all of the above text and attach $rcd_path/rcd "
 fi
-
-echo
-echo
-echo "For questions and/or comments please visit http://www.thebitguru.com/projects/iTunesPatch"
