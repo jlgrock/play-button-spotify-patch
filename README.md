@@ -1,6 +1,9 @@
 Play Button Spotify patch
 ========================
 
+UPDATE
+--------
+As of El Capitan, the OS has introduced the new [System Integrity Protection](https://en.wikipedia.org/wiki/System_Integrity_Protection), which means you have to disable this to patch.  I don't expect most folks are going to do this.  But it does work.
 
 Overview
 --------
